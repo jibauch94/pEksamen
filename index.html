@@ -3,28 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <title>Login form</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="checkLogin.js"></script>
 
 
 
 </head>
 <body>
 <!--laver login form -->
-<form action="override.html"> <!-- når der logges ind føres vi til denne side -->
+<form name="login"> <!-- når der logges ind føres vi til denne side -->
     <!--lægger username, password og loginknap i en div for nemmere at style -->
 
     <div class="container">
         <label><b>Username</b></label>
-        <input type="text" placeholder="Enter Username" name="root" required>
+        <input type="text" placeholder="Enter Username" name="inputUser" required>
 
         <label><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="root" required>
+        <input type="password" placeholder="Enter Password" name="inputPassword" required>
 
-        <button type="submit">Login</button>
-        <input type="checkbox" checked="checked"> Remember me
+        <input type="button" onclick="check(this.form)" value="Login"/>
+
     </div>
 
 
 </form>
+</form>
+
+<script language="javascript">
+    function check(form)/*function to check userid & password*/
+    {
+        /*the following code checkes whether the entered userid and password are matching*/
+        if(form.inputUser.value == "root" && form.inputPassword.value == "root")
+        {
+
+            window.open('override.html', "_self");/*opens the target page while Id & password matches*/
+        }
+        else
+        {
+            //document.write("Wrong Username or password");
+            window.open("nelson.html", "_self");
+            //alert("Error Password or Username")/*displays error message*/
+        }
+    }
+</script>
+
 </body>
 </html>
